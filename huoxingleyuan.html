@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全屏图片切换</title>
+    <style>
+        /* 全屏显示图片 */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        /* 设置图片全屏 */
+        #backgroundImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 显示的图片 -->
+    <img id="backgroundImage" src="image1.jpg" alt="Background Image">
+
+    <script>
+        // 图片数组，包含 image2 到 image10 的路径
+        const images = [
+            "image2.jpg",
+            "image3.jpg",
+            "image4.jpg",
+            "image5.jpg",
+            "image6.jpg",
+            "image7.jpg",
+            "image8.jpg",
+            "image9.jpg",
+            "image10.jpg"
+        ];
+
+        // 获取图片元素
+        const backgroundImage = document.getElementById("backgroundImage");
+
+        // 监听点击事件
+        document.addEventListener("click", function() {
+            // 从图片数组中随机选择一张图片
+            const randomIndex = Math.floor(Math.random() * images.length);
+            backgroundImage.src = images[randomIndex];
+        });
+    </script>
+
+</body>
+</html>
