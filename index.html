@@ -1,63 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-    <title>全屏图片切换</title>
-    <style>
-        /* 设置页面样式，确保图片全屏显示 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* 设置图片样式 */
-        #backgroundImage {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            transition: opacity 1s ease;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全屏图片展示</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- 显示的图片 -->
-    <img id="backgroundImage" src="https://marsconcert.oss-cn-beijing.aliyuncs.com/shiyan.jpg" alt="Background Image">
-
-    <script>
-        // 定义图片数组
-        const images = [
-            "https://marsconcert.oss-cn-beijing.aliyuncs.com/huoxing.jpg"
-        ];
-
-        // 获取图片元素
-        const backgroundImage = document.getElementById("backgroundImage");
-
-        // 监听点击事件
-        document.addEventListener("click", function() {
-            // 从图片数组中随机选择一张图片
-            const randomImage = images[Math.floor(Math.random() * images.length)];
-            
-            // 为了实现渐变效果，先将图片透明化
-            backgroundImage.style.opacity = 0;
-            
-            // 等待渐变结束，再切换图片并恢复显示
-            setTimeout(() => {
-                backgroundImage.src = randomImage;
-                backgroundImage.style.opacity = 1;
-            }, 500); // 500ms的延迟确保透明效果生效
-        });
-    </script>
-
+  <button id="openButton">进入全屏模式</button>
+  <div id="fullscreenWindow">
+    <img id="slideshowImage" src="https://marsconcert.oss-cn-beijing.aliyuncs.com/shiyan.jpg" alt="展示图片">
+    <button id="closeButton">&times;</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
